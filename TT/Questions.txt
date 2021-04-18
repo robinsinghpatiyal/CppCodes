@@ -1,0 +1,5 @@
+> implement a queue using two stacks
+> implement a stack using two queues
+> implement a queue in which each item consist of variable number of integer
+> define an input restricted dequeue as a dequeue for which only the operations remove left remove   right and insert left are valid.
+> given an array A with a sliding window with size W. This window W moves from the left to the right of the array A. Create another array B such that it store the max value from a[i] to a[i+w+1].

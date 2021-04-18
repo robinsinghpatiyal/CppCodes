@@ -1,10 +1,10 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
+
 int main(){
-	if(5<3)
-	cout<<"+";
-	else if(8==8)
-	cout<<"/";
-	else
-	cout<<"*";
+	int x = -1;
+	while(x<=5){
+		cout<<x;
+		x =x*2;
+	}
 }
