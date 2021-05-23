@@ -52,18 +52,19 @@ void printList(Node *head)
 
 int main()
 {
-    Node *head;
+    Node *head = NULL;
     push(&head, 1);
     push(&head, 2);
     push(&head, 3);
     push(&head, 4);
-    cout << "!" << endl;
-    // printList(head);
-    cout << "@" << endl;
-    reverse(&head);
-    cout << "#" << endl;
+
     printList(head);
-    cout << "$" << endl;
+    cout << endl
+         << endl;
+
+    reverse(&head);
+
+    printList(head);
+
     return 0;
 }
-
