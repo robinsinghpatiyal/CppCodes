@@ -81,10 +81,10 @@ int main()
     Node *first = NULL;
     Node *second = NULL;
 
-    push(&first, 1);
     push(&first, 2);
+    push(&first, 4);
     push(&first, 3);
-    push(&first, 3);
+    // push(&first, 3);
 
     printList(first);
     cout << endl;
@@ -92,9 +92,9 @@ int main()
     printList(first);
     cout << endl;
 
-    push(&second, 4);
     push(&second, 5);
     push(&second, 6);
+    push(&second, 4);
     printList(second);
     cout << endl;
     reverse(&second);
