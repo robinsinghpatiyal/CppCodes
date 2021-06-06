@@ -1,69 +1,96 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node
-{
-public:
-    int data;
-    Node *next;
-};
+void sol(){
+	string one, two;
 
-void push(Node **head_ref, int new_data)
-{
+    cin >> one;
+    cin >> two;
 
-    Node *new_node = new Node();
-    new_node->data = new_data;
+    int s1 = one.size();
+    int s2 = two.size();
 
-    if (*head_ref == NULL)
+    if (s1 != s2)
     {
-        new_node->next = NULL;
-        *head_ref = new_node;
+        cout << "Spy";
+        return;
     }
-    else
-    {
-        new_node->next = (*head_ref);
-        (*head_ref) = new_node;
-    }
-}
 
-void reverse(Node **head_ref)
-{
-    Node *temp = NULL;
-    Node *prev = NULL;
-    Node *current = (*head_ref);
-    while (current != NULL)
+    for (int i = 0; i < s1; i++)
     {
-        temp = current->next;
-        current->next = prev;
-        prev = current;
-        current = temp;
+        if (one[i] == two[i])
+        {
+            cout << "Spy";
+            return;
+        }
     }
-    (*head_ref) = prev;
-}
+    
+     for (int i = 0; i < s1; i++)
+    {
+        if (one[i] == one[i+1] && (one[i] != two[i] || one[i] != two[i+1]))
+        {
+            cout << "Spy";
+            return;
+        }
+    }
 
-void printList(Node *head)
-{
-    while (head != NULL)
-    {
-        cout << head->data << " ";
-        head = head->next;
+    unordered_map<char, int> mp;
+    unordered_map<char, int> mp1;
+
+    for (int i = 0; i < s1; i++)
+        mp[one[i]]++;
+
+    for (int i = 0; i < s2; i++)
+        mp1[two[i]]++;
+    
+    int i =0;
+    int arr[s1];
+
+    for (auto x : mp){
+    	arr[i] = x.second;
+    	i++;
+	}
+    i =0;
+    int arr1[s1];
+    
+    for (auto x : mp){
+        arr1[i] = x.second;
+    	i++;
     }
+    int count =1;
+    
+   // cout<<endl<<"test"<<endl;
+    
+    for(int i =0;i<s1;i++){
+    //	cout<<arr[i]<<" "<<arr1[i];
+    	if(arr[i] ==arr1[i]){
+    		count =0;
+		}
+	}
+	
+//	cout<<endl<<"test"<<endl;
+	
+	sort(one.begin(), one.end());
+    sort(two.begin(), two.end());
+ 
+    // Compare sorted strings
+            
+            
+	if(count ==0){
+		cout<<"Agent";
+	}
+	else{
+		cout<<"Spy";
+	}
 }
 
 int main()
 {
-    Node *head;
-    push(&head, 1);
-    push(&head, 2);
-    push(&head, 3);
-    push(&head, 4);
-    cout << "!" << endl;
-    // printList(head);
-    cout << "@" << endl;
-    reverse(&head);
-    cout << "#" << endl;
-    printList(head);
-    cout << "$" << endl;
-    return 0;
+	int t;
+	cin>>t;
+	while(t--){
+		sol();
+	}
+    
+    	
 }
-
